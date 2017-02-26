@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+
+	<body>
+		<p>Elena Kovacheska</p>
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+
+		<h3>Prime Numbers Smaller Than:</h3>
+
+		<form role="form" action="" method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="OK">
+		</form>
+
+		<p>Number of primes smaller than input: {{Count_Primes}}</p>
+		<p>Prime numbers smaller than input: {{List_Primes}}</p>
+	</body>
+</html>
